@@ -27,6 +27,7 @@
 		345E197A15B1431800B3A2BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345E197915B1431800B3A2BC /* MapKit.framework */; };
 		348ED07015B5995E00FB56A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348ED06F15B5995E00FB56A5 /* CoreData.framework */; };
 		348ED07415B599CA00FB56A5 /* VirtualVacation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 348ED07215B599CA00FB56A5 /* VirtualVacation.xcdatamodeld */; };
+		348ED07715B5AF3D00FB56A5 /* VacationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 348ED07615B5AF3D00FB56A5 /* VacationHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		345E197915B1431800B3A2BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		348ED06F15B5995E00FB56A5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		348ED07315B599CA00FB56A5 /* VirtualVacation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualVacation.xcdatamodel; sourceTree = "<group>"; };
+		348ED07515B5AF3D00FB56A5 /* VacationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VacationHelper.h; sourceTree = "<group>"; };
+		348ED07615B5AF3D00FB56A5 /* VacationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VacationHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				345E193B15B1424900B3A2BC /* VirtualVacationAppDelegate.m */,
 				345E193D15B1424900B3A2BC /* MainStoryboard.storyboard */,
 				348ED07215B599CA00FB56A5 /* VirtualVacation.xcdatamodeld */,
+				348ED07515B5AF3D00FB56A5 /* VacationHelper.h */,
+				348ED07615B5AF3D00FB56A5 /* VacationHelper.m */,
 				345E193215B1424900B3A2BC /* Supporting Files */,
 			);
 			path = VirtualVacation;
@@ -262,6 +267,7 @@
 				345E197515B142F200B3A2BC /* FlickrTableViewController.m in Sources */,
 				345E197615B142F200B3A2BC /* FlickrFetcher.m in Sources */,
 				348ED07415B599CA00FB56A5 /* VirtualVacation.xcdatamodeld in Sources */,
+				348ED07715B5AF3D00FB56A5 /* VacationHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
