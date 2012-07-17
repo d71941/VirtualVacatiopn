@@ -25,6 +25,8 @@
 		345E197615B142F200B3A2BC /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 345E196D15B142F200B3A2BC /* FlickrFetcher.m */; };
 		345E197815B1431300B3A2BC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345E197715B1431300B3A2BC /* CoreLocation.framework */; };
 		345E197A15B1431800B3A2BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345E197915B1431800B3A2BC /* MapKit.framework */; };
+		348ED07015B5995E00FB56A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348ED06F15B5995E00FB56A5 /* CoreData.framework */; };
+		348ED07415B599CA00FB56A5 /* VirtualVacation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 348ED07215B599CA00FB56A5 /* VirtualVacation.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		345E196D15B142F200B3A2BC /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		345E197715B1431300B3A2BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		345E197915B1431800B3A2BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		348ED06F15B5995E00FB56A5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		348ED07315B599CA00FB56A5 /* VirtualVacation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualVacation.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				348ED07015B5995E00FB56A5 /* CoreData.framework in Frameworks */,
 				345E197A15B1431800B3A2BC /* MapKit.framework in Frameworks */,
 				345E197815B1431300B3A2BC /* CoreLocation.framework in Frameworks */,
 				345E192C15B1424900B3A2BC /* UIKit.framework in Frameworks */,
@@ -98,6 +103,7 @@
 		345E192A15B1424900B3A2BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				348ED06F15B5995E00FB56A5 /* CoreData.framework */,
 				345E197915B1431800B3A2BC /* MapKit.framework */,
 				345E197715B1431300B3A2BC /* CoreLocation.framework */,
 				345E192B15B1424900B3A2BC /* UIKit.framework */,
@@ -117,6 +123,7 @@
 				345E193A15B1424900B3A2BC /* VirtualVacationAppDelegate.h */,
 				345E193B15B1424900B3A2BC /* VirtualVacationAppDelegate.m */,
 				345E193D15B1424900B3A2BC /* MainStoryboard.storyboard */,
+				348ED07215B599CA00FB56A5 /* VirtualVacation.xcdatamodeld */,
 				345E193215B1424900B3A2BC /* Supporting Files */,
 			);
 			path = VirtualVacation;
@@ -254,6 +261,7 @@
 				345E197415B142F200B3A2BC /* PhotoTableViewController.m in Sources */,
 				345E197515B142F200B3A2BC /* FlickrTableViewController.m in Sources */,
 				345E197615B142F200B3A2BC /* FlickrFetcher.m in Sources */,
+				348ED07415B599CA00FB56A5 /* VirtualVacation.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,8 +373,22 @@
 				345E194715B1424900B3A2BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		348ED07215B599CA00FB56A5 /* VirtualVacation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				348ED07315B599CA00FB56A5 /* VirtualVacation.xcdatamodel */,
+			);
+			currentVersion = 348ED07315B599CA00FB56A5 /* VirtualVacation.xcdatamodel */;
+			path = VirtualVacation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 345E191E15B1424900B3A2BC /* Project object */;
 }
