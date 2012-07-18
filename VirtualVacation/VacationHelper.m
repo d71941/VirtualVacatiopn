@@ -27,18 +27,23 @@ static NSMutableDictionary *vacationsForName;
 {
     NSFileManager *fileMgr = [[NSFileManager alloc] init];
     UIManagedDocument *vacation = [vacationsForName objectForKey:vacationName];
+    NSURL *dirURL = [[[fileMgr URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:VACATIONS_PATH];
 
     if(!vacation)
     {
-        NSURL *url = [[[fileMgr URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:VACATIONS_PATH];
-        url = [url URLByAppendingPathComponent:vacationName];
-
-        vacation = [[UIManagedDocument alloc] initWithFileURL:url];
+        vacation = [[UIManagedDocument alloc] initWithFileURL:[dirURL URLByAppendingPathComponent:vacationName]];
         [self addVacation:vacation withName:vacationName];
     }
     
     if (![fileMgr fileExistsAtPath:[vacation.fileURL path]])
     {
+        BOOL isDir, isExist;
+        isExist = [fileMgr fileExistsAtPath:[dirURL path] isDirectory:&isDir];
+        if(!isDir || !isExist)
+        {
+            [fileMgr createDirectoryAtURL:dirURL withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+
         [vacation saveToURL:vacation.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success){
             if(success)
             {
@@ -49,7 +54,10 @@ static NSMutableDictionary *vacationsForName;
     else if(vacation.documentState == UIDocumentStateClosed)
     {
         [vacation openWithCompletionHandler:^(BOOL success){
-            completionBlock(vacation);
+            if(success)
+            {
+                completionBlock(vacation);
+            }
         }];
     }
     else if(vacation.documentState == UIDocumentStateNormal)
