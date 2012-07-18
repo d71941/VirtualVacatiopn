@@ -10,16 +10,19 @@
 #import "PhotoTableViewController.h"
 #import "FlickrFetcher.h"
 #import "FlickrImageCache.h"
+#import "VacationHelper.h"
 
 @interface PhotoScrollViewController () <UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic,strong) UIImage *image;
 @property (nonatomic, strong) UIActivityIndicatorView *spinner;
+@property (nonatomic, strong) UIManagedDocument *vacation;
 @end
 
 @implementation PhotoScrollViewController
 
+@synthesize vacation = _vacation;
 @synthesize scrollView = _scrollView;
 @synthesize image = _image;
 @synthesize imageView = _imageView;
@@ -121,6 +124,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [VacationHelper openVacation:DEFAULT_VACATION_NAME usingBlock:^(UIManagedDocument *vacation){
+        self.vacation = vacation;
+        [[self.navigationItem rightBarButtonItem] setEnabled:YES];
+    }];
+
     self.scrollView.frame = self.view.bounds;
     self.spinner.center = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
     //[self showSpinner:(self.photo && !self.image)];

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#define DEFAULT_VACATION_NAME @"MyVacation"
 
 typedef void (^completion_block_t)(UIManagedDocument *vacation);
 

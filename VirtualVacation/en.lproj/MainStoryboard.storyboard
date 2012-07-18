@@ -229,7 +229,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IEj-qe-92o"/>
+                    <navigationItem key="navigationItem" id="IEj-qe-92o">
+                        <barButtonItem key="rightBarButtonItem" title="Visit" id="k5F-B9-FUy"/>
+                    </navigationItem>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2894" y="100"/>
