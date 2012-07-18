@@ -11,6 +11,7 @@
 #import "FlickrFetcher.h"
 #import "FlickrImageCache.h"
 #import "VacationHelper.h"
+#import "Photo+Flickr.h"
 
 @interface PhotoScrollViewController () <UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -119,6 +120,10 @@
         
         self.scrollView.contentSize = CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height);
     }
+}
+- (IBAction)visit:(id)sender
+{
+    [Photo photoWithFlickrInfo:self.photo inManagedObjectContext:self.vacation.managedObjectContext];
 }
 
 - (void)viewWillAppear:(BOOL)animated

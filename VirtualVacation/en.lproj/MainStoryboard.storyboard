@@ -230,7 +230,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="IEj-qe-92o">
-                        <barButtonItem key="rightBarButtonItem" title="Visit" id="k5F-B9-FUy"/>
+                        <barButtonItem key="rightBarButtonItem" title="Visit" id="k5F-B9-FUy">
+                            <connections>
+                                <action selector="visit:" destination="vkf-jT-Ov7" id="Uaz-ym-gdk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
             </objects>

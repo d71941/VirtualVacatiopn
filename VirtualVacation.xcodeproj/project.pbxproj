@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34465DB415B73A5F0092B67E /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 34465DB315B73A5F0092B67E /* Tag.m */; };
+		34465DB715B73A5F0092B67E /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 34465DB615B73A5F0092B67E /* Place.m */; };
+		34465DBA15B73A5F0092B67E /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 34465DB915B73A5F0092B67E /* Photo.m */; };
+		34465DC115B73AAB0092B67E /* Photo+Flickr.m in Sources */ = {isa = PBXBuildFile; fileRef = 34465DBC15B73AAB0092B67E /* Photo+Flickr.m */; };
+		34465DC215B73AAB0092B67E /* Place+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 34465DBE15B73AAB0092B67E /* Place+Create.m */; };
+		34465DC315B73AAB0092B67E /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 34465DC015B73AAB0092B67E /* Tag+Create.m */; };
 		345E192C15B1424900B3A2BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345E192B15B1424900B3A2BC /* UIKit.framework */; };
 		345E192E15B1424900B3A2BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345E192D15B1424900B3A2BC /* Foundation.framework */; };
 		345E193015B1424900B3A2BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345E192F15B1424900B3A2BC /* CoreGraphics.framework */; };
@@ -31,6 +37,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34465DB215B73A5F0092B67E /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		34465DB315B73A5F0092B67E /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		34465DB515B73A5F0092B67E /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		34465DB615B73A5F0092B67E /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		34465DB815B73A5F0092B67E /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		34465DB915B73A5F0092B67E /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		34465DBB15B73AAB0092B67E /* Photo+Flickr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+Flickr.h"; sourceTree = "<group>"; };
+		34465DBC15B73AAB0092B67E /* Photo+Flickr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Flickr.m"; sourceTree = "<group>"; };
+		34465DBD15B73AAB0092B67E /* Place+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Place+Create.h"; sourceTree = "<group>"; };
+		34465DBE15B73AAB0092B67E /* Place+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Place+Create.m"; sourceTree = "<group>"; };
+		34465DBF15B73AAB0092B67E /* Tag+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tag+Create.h"; sourceTree = "<group>"; };
+		34465DC015B73AAB0092B67E /* Tag+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Tag+Create.m"; sourceTree = "<group>"; };
 		345E192715B1424900B3A2BC /* VirtualVacation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualVacation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		345E192B15B1424900B3A2BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		345E192D15B1424900B3A2BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,6 +104,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34465DA815B739F00092B67E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				34465DBB15B73AAB0092B67E /* Photo+Flickr.h */,
+				34465DBC15B73AAB0092B67E /* Photo+Flickr.m */,
+				34465DBD15B73AAB0092B67E /* Place+Create.h */,
+				34465DBE15B73AAB0092B67E /* Place+Create.m */,
+				34465DBF15B73AAB0092B67E /* Tag+Create.h */,
+				34465DC015B73AAB0092B67E /* Tag+Create.m */,
+				34465DB815B73A5F0092B67E /* Photo.h */,
+				34465DB915B73A5F0092B67E /* Photo.m */,
+				34465DB515B73A5F0092B67E /* Place.h */,
+				34465DB615B73A5F0092B67E /* Place.m */,
+				34465DB215B73A5F0092B67E /* Tag.h */,
+				34465DB315B73A5F0092B67E /* Tag.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		345E191C15B1424900B3A2BC = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +156,7 @@
 		345E193115B1424900B3A2BC /* VirtualVacation */ = {
 			isa = PBXGroup;
 			children = (
+				34465DA815B739F00092B67E /* CoreData */,
 				345E197C15B1436700B3A2BC /* TableView */,
 				345E197D15B1438100B3A2BC /* ImageView */,
 				345E197E15B1438F00B3A2BC /* MapView */,
@@ -268,6 +306,12 @@
 				345E197615B142F200B3A2BC /* FlickrFetcher.m in Sources */,
 				348ED07415B599CA00FB56A5 /* VirtualVacation.xcdatamodeld in Sources */,
 				348ED07715B5AF3D00FB56A5 /* VacationHelper.m in Sources */,
+				34465DB415B73A5F0092B67E /* Tag.m in Sources */,
+				34465DB715B73A5F0092B67E /* Place.m in Sources */,
+				34465DBA15B73A5F0092B67E /* Photo.m in Sources */,
+				34465DC115B73AAB0092B67E /* Photo+Flickr.m in Sources */,
+				34465DC215B73AAB0092B67E /* Place+Create.m in Sources */,
+				34465DC315B73AAB0092B67E /* Tag+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
