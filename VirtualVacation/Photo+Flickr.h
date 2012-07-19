@@ -10,4 +10,6 @@
 
 @interface Photo (Flickr)
 + (Photo *)photoWithFlickrInfo:(NSDictionary *)flickrInfo inManagedObjectContext:(NSManagedObjectContext *)context;
++ (Photo *)getPhotoWithFlickrInfo:(NSDictionary *)flickrInfo inManagedObjectContext:(NSManagedObjectContext *)context;
++ (void)deletePhoto:(Photo *)photo inManagedObjectContext:(NSManagedObjectContext *)context;
 @end

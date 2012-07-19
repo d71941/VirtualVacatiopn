@@ -38,4 +38,35 @@
     
     return photo;
 }
++(Photo *)getPhotoWithFlickrInfo:(NSDictionary *)flickrInfo inManagedObjectContext:(NSManagedObjectContext *)context
+{
+    Photo *photo = nil;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+    request.predicate = [NSPredicate predicateWithFormat:@"unique = %@", [flickrInfo objectForKey:FLICKR_PHOTO_ID]];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    NSError *error = nil;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    if (!matches || ([matches count] > 1)) {
+        // handle error
+    } else if ([matches count] == 1) {
+        photo = [matches lastObject];
+    }
+
+    return photo;    
+}
++(void)deletePhoto:(Photo *)photo inManagedObjectContext:(NSManagedObjectContext *)context
+{
+    Place *place = photo.place;
+
+    [context deleteObject:photo];
+
+    if ([place.photos count] == 1)
+    {
+        [context deleteObject:place];
+    }
+}
 @end

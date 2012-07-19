@@ -13,6 +13,7 @@
 @implementation Place
 
 @dynamic name;
+@dynamic time;
 @dynamic photos;
 
 @end

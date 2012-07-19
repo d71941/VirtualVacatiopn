@@ -71,31 +71,6 @@
     return [PhotoTableViewController getDataForPhoto:[self.dataArray objectAtIndex:row]];
 }
 
--(void)storePhotoToRecent:(NSDictionary *)photo
-{
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *discardedItems = [NSMutableArray array];
-    NSMutableArray *photoArray = [[prefs objectForKey:@"photos"] mutableCopy];
-    
-    if (photoArray == nil)
-    {
-        photoArray = [[NSMutableArray alloc]  init];
-    }
-    
-    for (NSDictionary *oldPhoto in photoArray)
-    {
-        if ([[photo valueForKey:FLICKR_PHOTO_ID] isEqual:[oldPhoto valueForKey:FLICKR_PHOTO_ID]])
-        {
-            [discardedItems addObject:oldPhoto];
-            break;
-        }
-    }
-
-    [photoArray removeObjectsInArray:discardedItems];
-    [photoArray insertObject:photo atIndex:0];
-    
-    [prefs setObject:photoArray forKey:@"photos"];
-}
 -(void)showPhoto:(NSDictionary *)photo
 {
     if (self.splitViewController)
@@ -126,7 +101,6 @@
 }
 -(void)prepareImageForPhotoScrollViewController:(PhotoScrollViewController *)photoScrollViewController withPhoto:(NSDictionary *)photo
 {
-    [self storePhotoToRecent:photo];
     photoScrollViewController.photo = photo;
 }
 
