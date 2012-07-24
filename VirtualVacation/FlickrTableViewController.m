@@ -69,7 +69,7 @@
     }
 }
 
-- (NSDictionary *)getDataForRow:(NSInteger)row
+- (NSDictionary *)getInforForRow:(NSInteger)row
 {
     return nil;
 }
@@ -125,8 +125,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
 
-    cell.textLabel.text = [[self getDataForRow:indexPath.row] valueForKey:@"title"];
-    cell.detailTextLabel.text = [[self getDataForRow:indexPath.row] valueForKey:@"subtitle"];
+    NSDictionary *info = [self getInforForRow:indexPath.row];
+    cell.textLabel.text = [info valueForKey:@"title"];
+    cell.detailTextLabel.text = [info valueForKey:@"subtitle"];
 
     return cell;
 }

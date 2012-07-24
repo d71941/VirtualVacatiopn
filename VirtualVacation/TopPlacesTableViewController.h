@@ -9,5 +9,4 @@
 #import "FlickrTableViewController.h"
 
 @interface TopPlacesTableViewController : FlickrTableViewController
-+(NSDictionary *)getDataForPlace:(NSDictionary *)place;
 @end

@@ -1,28 +1,30 @@
 //
-//  VacationPlacesTableViewController.m
+//  VacationPhotosTableViewController.m
 //  VirtualVacation
 //
-//  Created by d71941 on 7/19/12.
+//  Created by d71941 on 7/20/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "VacationPlacesTableViewController.h"
+#import "VacationPhotosTableViewController.h"
 #import "VacationHelper.h"
-#import "Place.h"
+#import "FlickrHelper.h"
+#import "Photo.h"
 
-@interface VacationPlacesTableViewController ()
+@interface VacationPhotosTableViewController ()
 @property (nonatomic, strong) UIManagedDocument *vacation;
 @end
 
-@implementation VacationPlacesTableViewController
+@implementation VacationPhotosTableViewController
 @synthesize vacation = _vacation;
-
+@synthesize placeName = _placeName;
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Place"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES]];
-    // no predicate because we want ALL the Photographers
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"unique" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"place.name = %@", self.placeName];
+    
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:self.vacation.managedObjectContext
@@ -40,31 +42,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"VacationPlaceCell";
+    static NSString *CellIdentifier = @"VacationPhotoCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }    
     // Configure the cell...
-    Place *place = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    cell.textLabel.text = place.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d photos", [place.photos count]];
+    Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
+    NSDictionary *info = [FlickrHelper getInfoForPhoto:[NSKeyedUnarchiver unarchiveObjectWithData:photo.data]];
+
+    cell.textLabel.text = [info valueForKey:@"title"];
+    cell.detailTextLabel.text = [info valueForKey:@"subtitle"];
+    
     return cell;
 }
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    Place *place = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    if ([segue.destinationViewController respondsToSelector:@selector(setPlaceName:)]) {
-        [segue.destinationViewController setTitle:place.name];
-        [segue.destinationViewController performSelector:@selector(setPlaceName:) withObject:place.name];
+    if ([segue.destinationViewController respondsToSelector:@selector(setPhoto:)]) {
+        NSDictionary *data = [NSKeyedUnarchiver unarchiveObjectWithData:photo.data];
+        [segue.destinationViewController performSelector:@selector(setPhoto:) withObject:data];
     }
 }
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

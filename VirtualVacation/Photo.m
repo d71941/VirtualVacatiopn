@@ -2,7 +2,7 @@
 //  Photo.m
 //  VirtualVacation
 //
-//  Created by d71941 on 7/19/12.
+//  Created by d71941 on 7/25/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,10 +13,8 @@
 
 @implementation Photo
 
-@dynamic imageURL;
-@dynamic subtitle;
-@dynamic title;
 @dynamic unique;
+@dynamic data;
 @dynamic place;
 @dynamic tags;
 

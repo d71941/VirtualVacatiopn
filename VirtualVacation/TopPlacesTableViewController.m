@@ -9,6 +9,7 @@
 #import "TopPlacesTableViewController.h"
 #import "FlickrFetcher.h"
 #import "FlickrAnnotation.h"
+#import "FlickrHelper.h"
 #import "MapViewController.h"
 
 @interface TopPlacesTableViewController() <MapViewControllerDelegate>
@@ -43,18 +44,9 @@
     dispatch_release(downloadQueue);
     //self.dataArray = [[FlickrFetcher topPlaces] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:FLICKR_PLACE_NAME ascending:YES]]];
 }
-
-+(NSDictionary *)getDataForPlace:(NSDictionary *)place
+-(NSDictionary *)getInforForRow:(NSInteger)row
 {
-    NSString *content = [place valueForKey:FLICKR_PLACE_NAME];
-    NSString *title = [[content componentsSeparatedByString:@", "] objectAtIndex:0];
-    NSString *subtitle = [content substringFromIndex:[title length]+2];
-    
-    return [NSDictionary dictionaryWithObjectsAndKeys:title,@"title",subtitle,@"subtitle",nil];
-}
--(NSDictionary *)getDataForRow:(NSInteger)row
-{
-    return [TopPlacesTableViewController getDataForPlace:[self.dataArray objectAtIndex:row]];
+    return [FlickrHelper getInfoForPlace:[self.dataArray objectAtIndex:row]];
 }
 - (NSArray *)mapAnnotations
 {
@@ -84,7 +76,7 @@
             place = [sender place];
         }
         
-        flickrTableViewController.title = [[TopPlacesTableViewController getDataForPlace:place] objectForKey:@"title"];
+        flickrTableViewController.title = [[FlickrHelper getInfoForPlace:place] objectForKey:@"title"];
         //[flickrTableViewController.spinner startAnimating];
         
         dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);

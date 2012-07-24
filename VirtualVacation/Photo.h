@@ -2,7 +2,7 @@
 //  Photo.h
 //  VirtualVacation
 //
-//  Created by d71941 on 7/19/12.
+//  Created by d71941 on 7/25/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,10 +13,8 @@
 
 @interface Photo : NSManagedObject
 
-@property (nonatomic, retain) NSString * imageURL;
-@property (nonatomic, retain) NSString * subtitle;
-@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * unique;
+@property (nonatomic, retain) NSData * data;
 @property (nonatomic, retain) Place *place;
 @property (nonatomic, retain) NSSet *tags;
 @end

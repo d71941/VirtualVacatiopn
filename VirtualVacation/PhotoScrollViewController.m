@@ -7,7 +7,7 @@
 //
 
 #import "PhotoScrollViewController.h"
-#import "PhotoTableViewController.h"
+#import "FlickrHelper.h"
 #import "FlickrFetcher.h"
 #import "FlickrImageCache.h"
 #import "VacationHelper.h"
@@ -106,7 +106,7 @@
             {
                 [self storePhotoToRecent:photo];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    self.title = [[PhotoTableViewController getDataForPhoto:photo] objectForKey:@"title"];
+                    self.title = [[FlickrHelper getInfoForPhoto:photo] objectForKey:@"title"];
                     [self showSpinner:NO];
                     self.image = image;
                     [self resizeImage];
@@ -175,9 +175,12 @@
 
     if(self.photoInDB)
     {
-        [Photo deletePhoto:self.photoInDB inManagedObjectContext:self.vacation.managedObjectContext];
+        //[Photo deletePhoto:self.photoInDB inManagedObjectContext:self.vacation.managedObjectContext];
+        [self.vacation.managedObjectContext deleteObject:self.photoInDB];
         self.photoInDB = nil;
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.vacation saveToURL:self.vacation.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success){
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
     }
     else
     {

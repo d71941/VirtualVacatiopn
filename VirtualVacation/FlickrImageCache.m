@@ -45,7 +45,7 @@
                 [self.images addObject:file];
             }
             [self.images sortUsingDescriptors:[NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO]]];
-            NSLog(@"%@", self.images);
+            //NSLog(@"%@", self.images);
         }
         
     }

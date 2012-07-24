@@ -8,8 +8,7 @@
 
 #import "FlickrAnnotation.h"
 #import "FlickrFetcher.h"
-#import "PhotoTableViewController.h"
-#import "TopPlacesTableViewController.h"
+#import "FlickrHelper.h"
 
 @implementation FlickrAnnotation
 @synthesize photo = _photo;
@@ -38,11 +37,11 @@
 
     if(self.photo)
     {
-        title = [[PhotoTableViewController getDataForPhoto:self.photo] objectForKey:@"title"];
+        title = [[FlickrHelper getInfoForPhoto:self.photo] objectForKey:@"title"];
     }
     else if (self.place)
     {
-        title = [[TopPlacesTableViewController getDataForPlace:self.place] objectForKey:@"title"];
+        title = [[FlickrHelper getInfoForPlace:self.place] objectForKey:@"title"];
     }
     
     return title;
@@ -54,11 +53,11 @@
     
     if(self.photo)
     {
-        subtitle = [[PhotoTableViewController getDataForPhoto:self.photo] objectForKey:@"subtitle"];
+        subtitle = [[FlickrHelper getInfoForPhoto:self.photo] objectForKey:@"subtitle"];
     }
     else if (self.place)
     {
-        subtitle = [[TopPlacesTableViewController getDataForPlace:self.place] objectForKey:@"subtitle"];
+        subtitle = [[FlickrHelper getInfoForPlace:self.place] objectForKey:@"subtitle"];
     }
     
     return subtitle;

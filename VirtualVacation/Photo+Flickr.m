@@ -17,7 +17,7 @@
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
     request.predicate = [NSPredicate predicateWithFormat:@"unique = %@", [flickrInfo objectForKey:FLICKR_PHOTO_ID]];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"unique" ascending:YES];
     request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     
     NSError *error = nil;
@@ -28,9 +28,10 @@
     } else if ([matches count] == 0) {
         photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
         photo.unique = [flickrInfo objectForKey:FLICKR_PHOTO_ID];
-        photo.title = [flickrInfo objectForKey:FLICKR_PHOTO_TITLE];
-        photo.subtitle = [flickrInfo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
-        photo.imageURL = [[FlickrFetcher urlForPhoto:flickrInfo format:FlickrPhotoFormatLarge] absoluteString];
+        //photo.title = [flickrInfo objectForKey:FLICKR_PHOTO_TITLE];
+        //photo.subtitle = [flickrInfo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+        photo.data = [NSKeyedArchiver archivedDataWithRootObject:flickrInfo];
+        //photo.imageURL = [[FlickrFetcher urlForPhoto:flickrInfo format:FlickrPhotoFormatLarge] absoluteString];
         photo.place = [Place placeWithName:[flickrInfo objectForKey:FLICKR_PHOTO_PLACE_NAME] inManagedObjectContext:context];
     } else {
         photo = [matches lastObject];
@@ -44,7 +45,7 @@
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
     request.predicate = [NSPredicate predicateWithFormat:@"unique = %@", [flickrInfo objectForKey:FLICKR_PHOTO_ID]];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"unique" ascending:YES];
     request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     
     NSError *error = nil;
@@ -58,15 +59,24 @@
 
     return photo;    
 }
+- (void)prepareForDeletion
+{
+    Place *place = self.place;
+    if ([place.photos count] == 1)
+    {
+        [self.managedObjectContext deleteObject:place];
+    }
+}
+/*
 +(void)deletePhoto:(Photo *)photo inManagedObjectContext:(NSManagedObjectContext *)context
 {
     Place *place = photo.place;
-
-    [context deleteObject:photo];
 
     if ([place.photos count] == 1)
     {
         [context deleteObject:place];
     }
+    [context deleteObject:photo];
 }
+*/
 @end

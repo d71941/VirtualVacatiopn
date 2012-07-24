@@ -10,6 +10,7 @@
 #import "PhotoScrollViewController.h"
 #import "FlickrFetcher.h"
 #import "FlickrAnnotation.h"
+#import "FlickrHelper.h"
 #import "MapViewController.h"
 #import "FlickrImageCache.h"
 
@@ -43,32 +44,9 @@
     [self showPhoto:photo];
 }
 
-
-+(NSDictionary *)getDataForPhoto:(NSDictionary *)photo
+-(NSDictionary *)getInforForRow:(NSInteger)row
 {
-    NSString *title, *subtitle;
-    
-    if ([[photo valueForKey:FLICKR_PHOTO_TITLE] length])
-    {
-        title = [photo valueForKey:FLICKR_PHOTO_TITLE];
-    }
-    else if([[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] length])
-    {
-        title = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
-    }
-    else
-    {
-        title = @"Unknown";
-    }
-    
-    subtitle = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
-    
-    return [NSDictionary dictionaryWithObjectsAndKeys:title,@"title",subtitle,@"subtitle",nil];
-}
-
--(NSDictionary *)getDataForRow:(NSInteger)row
-{
-    return [PhotoTableViewController getDataForPhoto:[self.dataArray objectAtIndex:row]];
+    return [FlickrHelper getInfoForPhoto:[self.dataArray objectAtIndex:row]];
 }
 
 -(void)showPhoto:(NSDictionary *)photo

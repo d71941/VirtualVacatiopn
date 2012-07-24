@@ -9,5 +9,4 @@
 #import "FlickrTableViewController.h"
 
 @interface PhotoTableViewController : FlickrTableViewController
-+(NSDictionary *)getDataForPhoto:(NSDictionary *)photo;
 @end
