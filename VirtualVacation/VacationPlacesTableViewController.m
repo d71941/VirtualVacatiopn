@@ -30,11 +30,19 @@
                                                                                    cacheName:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+-(void)setVacation:(UIManagedDocument *)vacation
+{
+    if (vacation != _vacation)
+    {
+        _vacation = vacation;
+        [self setupFetchedResultsController];
+    }
+}
+
+- (void)viewDidLoad
 {
     [VacationHelper openVacation:DEFAULT_VACATION_NAME usingBlock:^(UIManagedDocument *vacation){
         self.vacation = vacation;
-        [self setupFetchedResultsController];
     }];
 }
 

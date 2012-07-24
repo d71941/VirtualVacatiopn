@@ -178,9 +178,8 @@
         //[Photo deletePhoto:self.photoInDB inManagedObjectContext:self.vacation.managedObjectContext];
         [self.vacation.managedObjectContext deleteObject:self.photoInDB];
         self.photoInDB = nil;
-        [self.vacation saveToURL:self.vacation.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success){
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
+        [self.navigationController popViewControllerAnimated:YES];
+
     }
     else
     {
