@@ -1,27 +1,28 @@
 //
-//  VacationPlacesTableViewController.m
+//  VacationTagsTableViewController.m
 //  VirtualVacation
 //
-//  Created by d71941 on 7/19/12.
+//  Created by d71941 on 7/26/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "VacationPlacesTableViewController.h"
+#import "VacationTagsTableViewController.h"
 #import "VacationHelper.h"
-#import "Place.h"
+#import "Tag+Create.h"
 
-@interface VacationPlacesTableViewController ()
+
+@interface VacationTagsTableViewController()
 @property (nonatomic, strong) UIManagedDocument *vacation;
 @end
 
-@implementation VacationPlacesTableViewController
+@implementation VacationTagsTableViewController
 @synthesize vacation = _vacation;
 
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Place"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES]];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Tag"];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"count" ascending:NO]];
     // no predicate because we want ALL the Photographers
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
@@ -48,29 +49,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"VacationPlaceCell";
+    static NSString *CellIdentifier = @"VacationTagCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }    
     // Configure the cell...
-    Place *place = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = place.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d photos", [place.photos count]];
-
+    cell.textLabel.text = tag.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d photos", [tag.photos count]];
+    //cell.detailTextLabel.text = [NSString stringWithFormat:@"jejeje"];
+    
     return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    Place *place = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    if ([segue.destinationViewController respondsToSelector:@selector(setPlaceName:)]) {
-        [segue.destinationViewController setTitle:place.name];
-        [segue.destinationViewController performSelector:@selector(setPlaceName:) withObject:place.name];
+    if ([segue.destinationViewController respondsToSelector:@selector(setTagName:)]) {
+        [segue.destinationViewController setTitle:tag.name];
+        [segue.destinationViewController performSelector:@selector(setTagName:) withObject:tag.name];
     }
 }
-
 @end

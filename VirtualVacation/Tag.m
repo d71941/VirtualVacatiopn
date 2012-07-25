@@ -2,7 +2,7 @@
 //  Tag.m
 //  VirtualVacation
 //
-//  Created by d71941 on 7/19/12.
+//  Created by d71941 on 7/26/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 @implementation Tag
 
 @dynamic name;
+@dynamic count;
 @dynamic photos;
 
 @end

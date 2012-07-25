@@ -90,6 +90,7 @@
 {
     if(_photo != photo)
     {
+        NSLog(@"%@", photo);
         _photo = photo;
         [self showSpinner:YES];
         dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);

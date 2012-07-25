@@ -8,7 +8,9 @@
 
 #import "Photo+Flickr.h"
 #import "Place+Create.h"
+#import "Tag+Create.h"
 #import "FlickrFetcher.h"
+#import "FlickrHelper.h"
 
 @implementation Photo (Flickr)
 + (Photo *)photoWithFlickrInfo:(NSDictionary *)flickrInfo inManagedObjectContext:(NSManagedObjectContext *)context
@@ -33,6 +35,16 @@
         photo.data = [NSKeyedArchiver archivedDataWithRootObject:flickrInfo];
         //photo.imageURL = [[FlickrFetcher urlForPhoto:flickrInfo format:FlickrPhotoFormatLarge] absoluteString];
         photo.place = [Place placeWithName:[flickrInfo objectForKey:FLICKR_PHOTO_PLACE_NAME] inManagedObjectContext:context];
+
+        NSMutableSet *tags = [[NSMutableSet alloc] init];
+        for(NSString *tagName in [FlickrHelper getTagsForPhoto:flickrInfo])
+        {
+            Tag *tag = [Tag tagWithName:tagName inManagedObjectContext:context];
+            tag.count++;
+            [tags addObject:tag];
+        }
+        photo.tags = tags;
+
     } else {
         photo = [matches lastObject];
     }
@@ -65,6 +77,16 @@
     if ([place.photos count] == 1)
     {
         [self.managedObjectContext deleteObject:place];
+    }
+    
+    NSSet *tags = self.tags;
+    for (Tag *tag in tags)
+    {
+        tag.count--;
+        if ([tag.photos count] == 1)
+        {
+            [self.managedObjectContext deleteObject:tag];
+        }
     }
 }
 /*

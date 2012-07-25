@@ -18,12 +18,21 @@
 @implementation VacationPhotosTableViewController
 @synthesize vacation = _vacation;
 @synthesize placeName = _placeName;
+@synthesize tagName = _tagName;
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"unique" ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"place.name = %@", self.placeName];
+    if (self.placeName)
+    {
+        request.predicate = [NSPredicate predicateWithFormat:@"place.name = %@", self.placeName];
+    }
+    else if (self.tagName)
+    {
+        request.predicate = [NSPredicate predicateWithFormat:@"any tags.name = %@", self.tagName];
+    }
+
     
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request

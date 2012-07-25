@@ -2,7 +2,7 @@
 //  Tag.h
 //  VirtualVacation
 //
-//  Created by d71941 on 7/19/12.
+//  Created by d71941 on 7/26/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 @interface Tag : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic) int64_t count;
 @property (nonatomic, retain) NSSet *photos;
 @end
 

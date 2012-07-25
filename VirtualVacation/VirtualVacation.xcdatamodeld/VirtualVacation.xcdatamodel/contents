@@ -12,12 +12,13 @@
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="place" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="tags" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Photo" positionX="61" positionY="-243" width="128" height="105"/>
+        <element name="Photo" positionX="61" positionY="-243" width="128" height="135"/>
         <element name="Place" positionX="232" positionY="36" width="128" height="90"/>
-        <element name="Tag" positionX="-99" positionY="27" width="128" height="75"/>
+        <element name="Tag" positionX="-99" positionY="27" width="128" height="90"/>
     </elements>
 </model>

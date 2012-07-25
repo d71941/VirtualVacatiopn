@@ -11,4 +11,5 @@
 @interface FlickrHelper : NSObject
 +(NSDictionary *)getInfoForPhoto:(NSDictionary *)photo;
 +(NSDictionary *)getInfoForPlace:(NSDictionary *)place;
++(NSArray *)getTagsForPhoto:(NSDictionary *)photo;
 @end

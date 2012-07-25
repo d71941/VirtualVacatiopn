@@ -41,5 +41,10 @@
     return [NSDictionary dictionaryWithObjectsAndKeys:title,@"title",subtitle,@"subtitle",nil];
 }
 
++(NSArray *)getTagsForPhoto:(NSDictionary *)photo
+{
+    NSString *tags = [photo valueForKey:@"tags"];
+    return [tags componentsSeparatedByString:@" "];
+}
 
 @end

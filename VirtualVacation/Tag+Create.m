@@ -27,6 +27,7 @@
     } else if (![tags count]) {
         tag = [NSEntityDescription insertNewObjectForEntityForName:@"Tag" inManagedObjectContext:context];
         tag.name = name;
+        tag.count = 0;
     } else {
         tag = [tags lastObject];
     }
