@@ -39,6 +39,7 @@
 		34BA770E15BF2563009C7E31 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BA770D15BF2563009C7E31 /* Photo.m */; };
 		34BA771115C050BD009C7E31 /* VacationTagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BA771015C050BC009C7E31 /* VacationTagsTableViewController.m */; };
 		34BA771B15C05D66009C7E31 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BA771A15C05D66009C7E31 /* Tag.m */; };
+		34BA771E15C064AD009C7E31 /* VacationSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BA771D15C064AC009C7E31 /* VacationSearchTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,8 @@
 		34BA771015C050BC009C7E31 /* VacationTagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VacationTagsTableViewController.m; sourceTree = "<group>"; };
 		34BA771915C05D66009C7E31 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		34BA771A15C05D66009C7E31 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		34BA771C15C064AC009C7E31 /* VacationSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VacationSearchTableViewController.h; sourceTree = "<group>"; };
+		34BA771D15C064AC009C7E31 /* VacationSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VacationSearchTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +220,8 @@
 				34BA76EF15B87FB7009C7E31 /* VacationPhotosTableViewController.m */,
 				34BA770F15C050BC009C7E31 /* VacationTagsTableViewController.h */,
 				34BA771015C050BC009C7E31 /* VacationTagsTableViewController.m */,
+				34BA771C15C064AC009C7E31 /* VacationSearchTableViewController.h */,
+				34BA771D15C064AC009C7E31 /* VacationSearchTableViewController.m */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				34BA770E15BF2563009C7E31 /* Photo.m in Sources */,
 				34BA771115C050BD009C7E31 /* VacationTagsTableViewController.m in Sources */,
 				34BA771B15C05D66009C7E31 /* Tag.m in Sources */,
+				34BA771E15C064AD009C7E31 /* VacationSearchTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

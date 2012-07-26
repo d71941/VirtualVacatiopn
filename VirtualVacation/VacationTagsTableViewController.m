@@ -17,7 +17,7 @@
 
 @implementation VacationTagsTableViewController
 @synthesize vacation = _vacation;
-
+@synthesize vacationName = _vacationName;
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
@@ -40,11 +40,15 @@
     }
 }
 
-- (void)viewDidLoad
+- (void)setVacationName:(NSString *)vacationName
 {
-    [VacationHelper openVacation:DEFAULT_VACATION_NAME usingBlock:^(UIManagedDocument *vacation){
-        self.vacation = vacation;
-    }];
+    if(vacationName != _vacationName)
+    {
+        _vacationName = vacationName;
+        [VacationHelper openVacation:_vacationName usingBlock:^(UIManagedDocument *vacation){
+            self.vacation = vacation;
+        }];        
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,6 +76,9 @@
     if ([segue.destinationViewController respondsToSelector:@selector(setTagName:)]) {
         [segue.destinationViewController setTitle:tag.name];
         [segue.destinationViewController performSelector:@selector(setTagName:) withObject:tag.name];
+    }
+    if ([segue.destinationViewController respondsToSelector:@selector(setVacationName:)]) {
+        [segue.destinationViewController performSelector:@selector(setVacationName:) withObject:self.vacationName];
     }
 }
 @end

@@ -13,6 +13,7 @@
 #import "FlickrHelper.h"
 #import "MapViewController.h"
 #import "FlickrImageCache.h"
+#import "VacationHelper.h"
 
 @interface PhotoTableViewController() <MapViewControllerDelegate>
 @end
@@ -44,7 +45,7 @@
     [self showPhoto:photo];
 }
 
--(NSDictionary *)getInforForRow:(NSInteger)row
+-(NSDictionary *)getInfoForRow:(NSInteger)row
 {
     return [FlickrHelper getInfoForPhoto:[self.dataArray objectAtIndex:row]];
 }
@@ -89,6 +90,7 @@
     if([segue.identifier isEqualToString:@"ShowImage"]){
         NSDictionary *photo = sender;
         PhotoScrollViewController *photoScrollViewController = [segue destinationViewController];
+        photoScrollViewController.vacationName = DEFAULT_VACATION_NAME;
         
         [self prepareImageForPhotoScrollViewController:photoScrollViewController withPhoto:photo];
     }
@@ -96,3 +98,4 @@
     //NSLog(@"%@\n",photo);
 }
 @end
+

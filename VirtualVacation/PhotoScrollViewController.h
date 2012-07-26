@@ -10,4 +10,5 @@
 
 @interface PhotoScrollViewController : UIViewController
 @property (nonatomic,strong) NSDictionary *photo;
+@property (nonatomic,strong) NSString *vacationName;
 @end

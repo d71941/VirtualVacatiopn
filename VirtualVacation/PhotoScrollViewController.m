@@ -23,6 +23,7 @@
 @end
 
 @implementation PhotoScrollViewController
+@synthesize vacationName = _vacationName;
 @synthesize photoInDB = _photoInDB;
 @synthesize vacation = _vacation;
 @synthesize scrollView = _scrollView;
@@ -191,7 +192,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [VacationHelper openVacation:DEFAULT_VACATION_NAME usingBlock:^(UIManagedDocument *vacation){
+    [VacationHelper openVacation:self.vacationName usingBlock:^(UIManagedDocument *vacation){
         self.vacation = vacation;
         self.photoInDB = [Photo getPhotoWithFlickrInfo:self.photo inManagedObjectContext:self.vacation.managedObjectContext];
     }];

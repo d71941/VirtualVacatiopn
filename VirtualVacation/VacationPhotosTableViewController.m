@@ -17,6 +17,7 @@
 
 @implementation VacationPhotosTableViewController
 @synthesize vacation = _vacation;
+@synthesize vacationName = _vacationName;
 @synthesize placeName = _placeName;
 @synthesize tagName = _tagName;
 
@@ -50,12 +51,17 @@
     }
 }
 
-- (void)viewDidLoad
+- (void)setVacationName:(NSString *)vacationName
 {
-    [VacationHelper openVacation:DEFAULT_VACATION_NAME usingBlock:^(UIManagedDocument *vacation){
-        self.vacation = vacation;
-    }];
+    if(vacationName != _vacationName)
+    {
+        _vacationName = vacationName;
+        [VacationHelper openVacation:_vacationName usingBlock:^(UIManagedDocument *vacation){
+            self.vacation = vacation;
+        }];        
+    }
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -82,6 +88,9 @@
     if ([segue.destinationViewController respondsToSelector:@selector(setPhoto:)]) {
         NSDictionary *data = [NSKeyedUnarchiver unarchiveObjectWithData:photo.data];
         [segue.destinationViewController performSelector:@selector(setPhoto:) withObject:data];
+    }
+    if ([segue.destinationViewController respondsToSelector:@selector(setVacationName:)]) {
+        [segue.destinationViewController performSelector:@selector(setVacationName:) withObject:self.vacationName];
     }
 }
 #pragma mark - Table view delegate

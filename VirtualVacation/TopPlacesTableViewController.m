@@ -44,7 +44,7 @@
     dispatch_release(downloadQueue);
     //self.dataArray = [[FlickrFetcher topPlaces] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:FLICKR_PLACE_NAME ascending:YES]]];
 }
--(NSDictionary *)getInforForRow:(NSInteger)row
+-(NSDictionary *)getInfoForRow:(NSInteger)row
 {
     return [FlickrHelper getInfoForPlace:[self.dataArray objectAtIndex:row]];
 }

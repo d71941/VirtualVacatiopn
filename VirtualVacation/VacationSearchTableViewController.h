@@ -1,13 +1,13 @@
 //
-//  VacationTagsTableViewController.h
+//  VacationSearchTableViewControllerViewController.h
 //  VirtualVacation
 //
 //  Created by d71941 on 7/26/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "CoreDataTableViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface VacationTagsTableViewController : CoreDataTableViewController
+@interface VacationSearchTableViewController : UITableViewController
 @property (nonatomic,strong) NSString *vacationName;
 @end

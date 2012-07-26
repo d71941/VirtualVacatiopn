@@ -11,5 +11,5 @@
 
 @interface FlickrTableViewController : UITableViewController
 @property (nonatomic, strong) NSArray *dataArray;
-- (NSDictionary *)getInforForRow:(NSInteger)row;
+- (NSDictionary *)getInfoForRow:(NSInteger)row;
 @end

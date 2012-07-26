@@ -69,7 +69,7 @@
     }
 }
 
-- (NSDictionary *)getInforForRow:(NSInteger)row
+- (NSDictionary *)getInfoForRow:(NSInteger)row
 {
     return nil;
 }
@@ -125,7 +125,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
 
-    NSDictionary *info = [self getInforForRow:indexPath.row];
+    NSDictionary *info = [self getInfoForRow:indexPath.row];
     cell.textLabel.text = [info valueForKey:@"title"];
     cell.detailTextLabel.text = [info valueForKey:@"subtitle"];
 

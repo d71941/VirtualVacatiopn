@@ -12,4 +12,5 @@
 @interface VacationPhotosTableViewController : CoreDataTableViewController
 @property (nonatomic, strong) NSString *placeName;
 @property (nonatomic, strong) NSString *tagName;
+@property (nonatomic,strong) NSString *vacationName;
 @end

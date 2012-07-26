@@ -10,5 +10,5 @@
 #import "CoreDataTableViewController.h"
 
 @interface VacationPlacesTableViewController : CoreDataTableViewController
-
+@property (nonatomic,strong) NSString *vacationName;
 @end
