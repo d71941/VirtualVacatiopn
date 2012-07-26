@@ -203,7 +203,7 @@
                     <navigationItem key="navigationItem" title="Places" id="GUV-PM-r1m"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2418" y="1548"/>
+            <point key="canvasLocation" x="2862" y="1260"/>
         </scene>
         <!--Vacation Tags Table View Controller - Tags-->
         <scene sceneID="o1z-gK-Aku">
@@ -252,7 +252,7 @@
                     <navigationItem key="navigationItem" title="Tags" id="k5z-iQ-xcD"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2424" y="2220"/>
+            <point key="canvasLocation" x="2868" y="1932"/>
         </scene>
         <!--Vacation Photos Table View Controller-->
         <scene sceneID="Qf6-iX-fTK">
@@ -301,7 +301,7 @@
                     <navigationItem key="navigationItem" id="uF0-yY-iTE"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2864" y="1548"/>
+            <point key="canvasLocation" x="3308" y="1260"/>
         </scene>
         <!--Recent Photo Table View Controller - Recent-->
         <scene sceneID="1ah-1c-ZUq">
@@ -355,7 +355,49 @@
                     </navigationItem>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3394" y="372"/>
+            <point key="canvasLocation" x="3852" y="434"/>
+        </scene>
+        <!--Vacation Name Table View Controller - Virtual Vacations-->
+        <scene sceneID="9en-Ql-KUL">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="93W-xo-CER" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="sVw-5l-qyV" customClass="VacationNameTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CZ2-Hx-jF0">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VacationNameCell" textLabel="UIa-9G-WKb" style="IBUITableViewCellStyleDefault" id="jrg-bJ-1cD">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UIa-9G-WKb">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="Mgk-QG-hrK" kind="push" identifier="VacationSearch" id="nir-md-zVJ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sVw-5l-qyV" id="Vir-16-lrR"/>
+                            <outlet property="delegate" destination="sVw-5l-qyV" id="5Y0-W4-GaX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Virtual Vacations" id="3uK-4q-Rm9"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1857" y="1376"/>
         </scene>
         <!--Navigation Controller - Recents-->
         <scene sceneID="Tz5-Aa-e2g">
@@ -413,7 +455,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Mgk-QG-hrK" kind="relationship" relationship="rootViewController" id="AZO-Sf-Vma"/>
+                        <segue destination="sVw-5l-qyV" kind="relationship" relationship="rootViewController" id="lMn-yE-uSc"/>
                     </connections>
                 </navigationController>
             </objects>
@@ -484,7 +526,7 @@
                     <navigationItem key="navigationItem" id="Dpa-Pb-cZa"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1862" y="1664"/>
+            <point key="canvasLocation" x="2306" y="1376"/>
         </scene>
     </scenes>
     <classes>
@@ -512,11 +554,17 @@
         <class className="TopPlacesTableViewController" superclassName="FlickrTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TopPlacesTableViewController.h"/>
         </class>
+        <class className="VacationNameTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationNameTableViewController.h"/>
+        </class>
         <class className="VacationPhotosTableViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationPhotosTableViewController.h"/>
         </class>
         <class className="VacationPlacesTableViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationPlacesTableViewController.h"/>
+        </class>
+        <class className="VacationSearchTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationSearchTableViewController.h"/>
         </class>
         <class className="VacationTagsTableViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationTagsTableViewController.h"/>
@@ -528,8 +576,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="96Z-xv-huR"/>
-        <segue reference="lxt-wc-56O"/>
+        <segue reference="srQ-k1-xFO"/>
         <segue reference="dUW-S0-dZ4"/>
+        <segue reference="WOM-B7-Xt9"/>
     </inferredMetricsTieBreakers>
 </document>

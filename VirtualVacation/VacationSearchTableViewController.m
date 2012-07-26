@@ -17,10 +17,14 @@
 
 @implementation VacationSearchTableViewController
 @synthesize vacationName = _vacationName;
-- (void)viewDidLoad
+
+- (void)setVacationName:(NSString *)vacationName
 {
-    [super viewDidLoad];
-    self.vacationName = DEFAULT_VACATION_NAME;
+    if (vacationName != _vacationName)
+    {
+        _vacationName = vacationName;
+        self.title = vacationName;
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -30,15 +34,14 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"VacationPlaces"])
+    if ([segue.identifier isEqualToString:@"VacationPlaces"] || [segue.identifier isEqualToString:@"VacationTags"])
     {
-        VacationPlacesTableViewController *placesTableViewController = segue.destinationViewController;
-        placesTableViewController.vacationName = self.vacationName;
-    }
-    else if ([segue.identifier isEqualToString:@"VacationTags"])
-    {
-        VacationTagsTableViewController *tagsTableViewController = segue.destinationViewController;
-        tagsTableViewController.vacationName = self.vacationName;        
+        id viewController = segue.destinationViewController;
+        
+        if ([viewController respondsToSelector:@selector(setVacationName:)])
+        {
+            [viewController performSelector:@selector(setVacationName:) withObject:self.vacationName];
+        }
     }
 }
 

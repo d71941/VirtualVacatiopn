@@ -40,6 +40,7 @@
 		34BA771115C050BD009C7E31 /* VacationTagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BA771015C050BC009C7E31 /* VacationTagsTableViewController.m */; };
 		34BA771B15C05D66009C7E31 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BA771A15C05D66009C7E31 /* Tag.m */; };
 		34BA771E15C064AD009C7E31 /* VacationSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BA771D15C064AC009C7E31 /* VacationSearchTableViewController.m */; };
+		34BA772115C1BEFB009C7E31 /* VacationNameTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BA772015C1BEFA009C7E31 /* VacationNameTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,8 +102,10 @@
 		34BA771015C050BC009C7E31 /* VacationTagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VacationTagsTableViewController.m; sourceTree = "<group>"; };
 		34BA771915C05D66009C7E31 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		34BA771A15C05D66009C7E31 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
-		34BA771C15C064AC009C7E31 /* VacationSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VacationSearchTableViewController.h; sourceTree = "<group>"; };
+		34BA771C15C064AC009C7E31 /* VacationSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VacationSearchTableViewController.h; sourceTree = "<group>"; };
 		34BA771D15C064AC009C7E31 /* VacationSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VacationSearchTableViewController.m; sourceTree = "<group>"; };
+		34BA771F15C1BEFA009C7E31 /* VacationNameTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VacationNameTableViewController.h; sourceTree = "<group>"; };
+		34BA772015C1BEFA009C7E31 /* VacationNameTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VacationNameTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +225,8 @@
 				34BA771015C050BC009C7E31 /* VacationTagsTableViewController.m */,
 				34BA771C15C064AC009C7E31 /* VacationSearchTableViewController.h */,
 				34BA771D15C064AC009C7E31 /* VacationSearchTableViewController.m */,
+				34BA771F15C1BEFA009C7E31 /* VacationNameTableViewController.h */,
+				34BA772015C1BEFA009C7E31 /* VacationNameTableViewController.m */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 				34BA771115C050BD009C7E31 /* VacationTagsTableViewController.m in Sources */,
 				34BA771B15C05D66009C7E31 /* Tag.m in Sources */,
 				34BA771E15C064AD009C7E31 /* VacationSearchTableViewController.m in Sources */,
+				34BA772115C1BEFB009C7E31 /* VacationNameTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

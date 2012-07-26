@@ -13,6 +13,20 @@
 static NSMutableDictionary *vacationsForName;
 
 @implementation VacationHelper
++ (NSArray *)getVacationNames
+{
+    NSFileManager *fileMgr = [[NSFileManager alloc] init];
+    NSURL *dirURL = [[[fileMgr URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:VACATIONS_PATH];
+    
+    NSArray *urls = [fileMgr contentsOfDirectoryAtURL:dirURL includingPropertiesForKeys:[NSArray arrayWithObject:NSURLIsDirectoryKey] options:nil error:nil];
+    NSMutableArray *vacationNames = [[NSMutableArray alloc] init];
+    for (NSURL *url in urls)
+    {
+        [vacationNames addObject:[url lastPathComponent]];
+    }
+    return vacationNames;
+}
+
 + (void)addVacation:(UIManagedDocument *)vacation withName:(NSString *)vacationName
 {
     if(!vacationsForName)
